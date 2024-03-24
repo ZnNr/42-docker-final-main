@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"math/rand"
 	"testing"
 	"time"
@@ -35,7 +36,12 @@ func TestAddGetDelete(t *testing.T) {
 	if err != nil {
 		require.NoError(t, err)
 	}
-	defer db.Close()
+	defer func() {
+		err = db.Close()
+		if err != nil {
+			fmt.Println("Error closing database:", err)
+		}
+	}()
 	store := NewParcelStore(db)
 	parcel := getTestParcel()
 
@@ -65,7 +71,12 @@ func TestSetAddress(t *testing.T) {
 	if err != nil {
 		require.NoError(t, err)
 	}
-	defer db.Close()
+	defer func() {
+		err = db.Close()
+		if err != nil {
+			fmt.Println("Error closing database:", err)
+		}
+	}()
 	store := NewParcelStore(db)
 	parcel := getTestParcel()
 
@@ -95,7 +106,12 @@ func TestSetStatus(t *testing.T) {
 	if err != nil {
 		require.NoError(t, err)
 	}
-	defer db.Close()
+	defer func() {
+		err = db.Close()
+		if err != nil {
+			fmt.Println("Error closing database:", err)
+		}
+	}()
 	store := NewParcelStore(db)
 	parcel := getTestParcel()
 
@@ -124,7 +140,12 @@ func TestGetByClient(t *testing.T) {
 	if err != nil {
 		require.NoError(t, err)
 	}
-	defer db.Close()
+	defer func() {
+		err = db.Close()
+		if err != nil {
+			fmt.Println("Error closing database:", err)
+		}
+	}()
 	store := NewParcelStore(db)
 
 	parcels := []Parcel{
