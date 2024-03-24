@@ -1,6 +1,6 @@
-name: Go-sprint-homework
+name: Go
 
-on: # rebuild any PRs and main branch changes
+on:
   pull_request:
   push:
     branches:
@@ -19,7 +19,7 @@ jobs:
           go-version: '1.22'
 
       - name: Run Unit Tests
-        run: GOOS=linux GOARCH=amd64 go test -v ./...
+        run: go test -v ./...
 
       - name: Vet
         run: |
