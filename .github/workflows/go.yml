@@ -1,11 +1,10 @@
 name: Go
 
 on:
-  pull_request:
   push:
-    branches:
-      - master
-      - main
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
 
