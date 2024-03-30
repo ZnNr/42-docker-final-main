@@ -19,7 +19,6 @@ jobs:
       - name: Run Unit Tests
         run: GOOS=linux GOARCH=amd64 go test
 
-
   deploy:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
