@@ -17,7 +17,7 @@ jobs:
           go vet ./...
 
       - name: Run Unit Tests
-        run: GOOS=linux GOARCH=amd64 go test
+        run: go test ./...
 
   deploy:
     name: Push Docker image to Docker Hub
@@ -41,7 +41,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-          images: ZnNr/42-docker-final-main
+          images: znnr/42-docker-final-main
 
       - name: Build and push Docker Image
         uses: docker/build-push-action@v5
