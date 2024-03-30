@@ -1,5 +1,4 @@
 name: Go
-
 on:
   pull_request:
   push:
@@ -7,13 +6,11 @@ on:
       - main
 
 jobs:
-
   tests:
     runs-on: ubuntu-latest
     container: golang:1.22
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
 
       - name: Vet
         run: |
@@ -44,7 +41,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-          images: znnre/42-docker-final
+          images: ZnNr/42-docker-final-main
 
       - name: Build and push Docker Image
         uses: docker/build-push-action@v5
