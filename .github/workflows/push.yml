@@ -1,5 +1,4 @@
 name: golang-pipeline
-
 on: push
 jobs:
   test:
@@ -13,7 +12,7 @@ jobs:
           go vet ./...
 
       - name: Run Unit Tests
-        run: go test ./...
+        run: GOOS=linux GOARCH=amd64 go test
 
   deploy:
     name: Push Docker image to Docker Hub
@@ -37,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-          images: znnr/docker-final
+          images: <znnr>/42-docker-final-main
 
       - name: Build and push Docker Image
         uses: docker/build-push-action@v5
