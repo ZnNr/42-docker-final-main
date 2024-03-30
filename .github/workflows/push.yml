@@ -39,9 +39,8 @@ jobs:
         with:
           images: znnr/42-docker-final-main
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v5.5.1
+      - name: Build and push Docker Image
+        uses: docker/build-push-action@v5
         with:
           context: .
           push: true
